@@ -20,7 +20,7 @@ class PermissionsPage extends StatelessWidget {
                 width: 100,
                 height: 100,
                 child: Image.asset(
-                  "assets/images/smiley.png",
+                  "assets/images/icon_clean.png",
                   fit: BoxFit.contain,
                 )),
             const SizedBox(height: 16),
