@@ -17,10 +17,19 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
   Stream<CameraState> mapEventToState(
     CameraEvent event,
   ) async* {
-    yield* event.map(checkPermissions: _checkPermissions);
+    yield* event.map(
+        checkPermissions: _checkPermissions, takePhoto: _takePhoto);
   }
 
-  Stream<CameraState> _checkPermissions(_Started event) async* {
+  Stream<CameraState> _takePhoto(_TakePhoto event) async* {
+    final duration = const Duration(
+        seconds: 2); //TODO: load in joke from api, convert to mp3, get duration
+    yield state.copyWith(takingPhoto: true, jokeDuration: duration);
+    await Future.delayed(duration);
+    yield state.copyWith(takingPhoto: false);
+  }
+
+  Stream<CameraState> _checkPermissions(_CheckPermissions event) async* {
     final hasCameraPermission =
         await Permissions.camera(requestIfUnallowed: event.ask);
     yield state.copyWith(permissions: hasCameraPermission);

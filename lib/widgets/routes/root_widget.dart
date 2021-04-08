@@ -22,7 +22,7 @@ class RootWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Smile Camera',
         theme: Themes.lightTheme,
-        darkTheme: Themes.darkTheme,
+       // darkTheme: Themes.darkTheme,
         initialRoute: RouteController.routePermissions,
         onGenerateRoute: RouteController.gnerateRoute,
       ),
