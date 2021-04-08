@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:happy_camera/application/camera_bloc/camera_bloc.dart';
+import 'package:happy_camera/core/utilities/images.dart';
 import 'package:happy_camera/widgets/routes/main/loading_cameras_widget.dart';
 import 'package:happy_camera/widgets/routes/main/photo_button.dart';
 
@@ -12,7 +15,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   late CameraController _cameraController;
-  late List<CameraDescription>? cameras;
+  List<CameraDescription>? cameras;
 
   @override
   void initState() {
@@ -33,9 +36,11 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<CameraBloc, CameraState>(
-      listener: (context, state) {},
+      listener: (context, state) {
+        takePhoto(context);
+      },
       listenWhen: (before, after) {
-        return !after.permissions;
+        return !before.takePhoto && after.takePhoto;
       },
       child: Scaffold(
         body: _body(context),
@@ -50,7 +55,27 @@ class _MainPageState extends State<MainPage> {
 
     return Stack(
       alignment: Alignment.center,
-      children: [_camera(context), _photoButton(context)],
+      children: [
+        _camera(context),
+        _photoButton(context),
+        _loadingJoke(context)
+      ],
+    );
+  }
+
+  Widget _loadingJoke(BuildContext context) {
+    return SafeArea(
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: BlocBuilder<CameraBloc, CameraState>(
+          builder: (context, state) {
+            if (state.fetchingJoke) {
+              return const LinearProgressIndicator();
+            }
+            return const SizedBox();
+          },
+        ),
+      ),
     );
   }
 
@@ -58,7 +83,10 @@ class _MainPageState extends State<MainPage> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: SafeArea(
-        child: PhotoButton(),
+        child: Padding(
+          padding: const EdgeInsets.only(bottom: 16),
+          child: PhotoButton(),
+        ),
       ),
     );
   }
@@ -68,5 +96,11 @@ class _MainPageState extends State<MainPage> {
       child:
           Container(color: Colors.red, child: CameraPreview(_cameraController)),
     );
+  }
+
+  Future<void> takePhoto(BuildContext context) async {
+    final image = await _cameraController.takePicture();
+    await Images.savePhoto(image.path);
+    BlocProvider.of<CameraBloc>(context).add(const CameraEvent.newJoke());
   }
 }

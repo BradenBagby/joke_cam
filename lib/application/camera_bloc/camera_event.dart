@@ -4,4 +4,5 @@ part of 'camera_bloc.dart';
 class CameraEvent with _$CameraEvent {
   const factory CameraEvent.checkPermissions({required bool ask}) = _CheckPermissions;
   const factory CameraEvent.takePhoto() = _TakePhoto;
+  const factory CameraEvent.newJoke() = _NewJoke;
 }

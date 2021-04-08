@@ -7,24 +7,10 @@ class PhotoButton extends StatefulWidget {
   _PhotoButtonState createState() => _PhotoButtonState();
 }
 
-class _PhotoButtonState extends State<PhotoButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _animationController;
-
+class _PhotoButtonState extends State<PhotoButton> {
   @override
   void initState() {
-    _animationController = AnimationController(vsync: this);
-    _animationController.addListener(() {
-      setState(() {});
-    });
-
     super.initState();
-  }
-
-  void setupAnimation(Duration duration) {
-    _animationController.reset();
-    _animationController.duration = duration;
-    _animationController.forward();
   }
 
   @override
@@ -37,26 +23,18 @@ class _PhotoButtonState extends State<PhotoButton>
           BlocProvider.of<CameraBloc>(context)
               .add(const CameraEvent.takePhoto());
         },
-        child: BlocConsumer<CameraBloc, CameraState>(
-          listener: (context, state) {
-            //listener to start animation
-            setupAnimation(state.jokeDuration);
-          },
-          listenWhen: (before, after) {
-            return !before.takingPhoto && after.takingPhoto;
-          },
+        child: BlocBuilder<CameraBloc, CameraState>(
           builder: (context, state) {
-            if (state.takingPhoto) {
+            if (state.sayingJoke) {
               return CircularProgressIndicator(
                 backgroundColor: Theme.of(context).canvasColor,
-                value: _animationController.value,
               );
             }
 
             return ClipOval(
               child: Container(
                 decoration: BoxDecoration(
-                    color: Colors.transparent,
+                    color: state.takePhoto ? Colors.white : Colors.transparent,
                     borderRadius: BorderRadius.circular(75),
                     border: Border.all(
                         color: Colors.white.withAlpha(240), width: 5)),

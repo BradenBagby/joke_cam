@@ -4,7 +4,10 @@ part of 'camera_bloc.dart';
 class CameraState with _$CameraState {
   const factory CameraState({
     @Default(false) bool permissions,
-    @Default(false) bool takingPhoto,
-    @Default(Duration.zero) Duration jokeDuration,
+    @Default(false) bool sayingJoke,
+    @Default(false) bool fetchingJoke,
+    @Default(null) Joke? joke,
+    @Default(null) String? error,
+    @Default(false) bool takePhoto,
   }) = _CameraState;
 }

@@ -25,6 +25,10 @@ class _$CameraEventTearOff {
   _TakePhoto takePhoto() {
     return const _TakePhoto();
   }
+
+  _NewJoke newJoke() {
+    return const _NewJoke();
+  }
 }
 
 /// @nodoc
@@ -36,12 +40,14 @@ mixin _$CameraEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(bool ask) checkPermissions,
     required TResult Function() takePhoto,
+    required TResult Function() newJoke,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool ask)? checkPermissions,
     TResult Function()? takePhoto,
+    TResult Function()? newJoke,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,12 +55,14 @@ mixin _$CameraEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckPermissions value) checkPermissions,
     required TResult Function(_TakePhoto value) takePhoto,
+    required TResult Function(_NewJoke value) newJoke,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckPermissions value)? checkPermissions,
     TResult Function(_TakePhoto value)? takePhoto,
+    TResult Function(_NewJoke value)? newJoke,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -142,6 +150,7 @@ class _$_CheckPermissions implements _CheckPermissions {
   TResult when<TResult extends Object?>({
     required TResult Function(bool ask) checkPermissions,
     required TResult Function() takePhoto,
+    required TResult Function() newJoke,
   }) {
     return checkPermissions(ask);
   }
@@ -151,6 +160,7 @@ class _$_CheckPermissions implements _CheckPermissions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool ask)? checkPermissions,
     TResult Function()? takePhoto,
+    TResult Function()? newJoke,
     required TResult orElse(),
   }) {
     if (checkPermissions != null) {
@@ -164,6 +174,7 @@ class _$_CheckPermissions implements _CheckPermissions {
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckPermissions value) checkPermissions,
     required TResult Function(_TakePhoto value) takePhoto,
+    required TResult Function(_NewJoke value) newJoke,
   }) {
     return checkPermissions(this);
   }
@@ -173,6 +184,7 @@ class _$_CheckPermissions implements _CheckPermissions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckPermissions value)? checkPermissions,
     TResult Function(_TakePhoto value)? takePhoto,
+    TResult Function(_NewJoke value)? newJoke,
     required TResult orElse(),
   }) {
     if (checkPermissions != null) {
@@ -230,6 +242,7 @@ class _$_TakePhoto implements _TakePhoto {
   TResult when<TResult extends Object?>({
     required TResult Function(bool ask) checkPermissions,
     required TResult Function() takePhoto,
+    required TResult Function() newJoke,
   }) {
     return takePhoto();
   }
@@ -239,6 +252,7 @@ class _$_TakePhoto implements _TakePhoto {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(bool ask)? checkPermissions,
     TResult Function()? takePhoto,
+    TResult Function()? newJoke,
     required TResult orElse(),
   }) {
     if (takePhoto != null) {
@@ -252,6 +266,7 @@ class _$_TakePhoto implements _TakePhoto {
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckPermissions value) checkPermissions,
     required TResult Function(_TakePhoto value) takePhoto,
+    required TResult Function(_NewJoke value) newJoke,
   }) {
     return takePhoto(this);
   }
@@ -261,6 +276,7 @@ class _$_TakePhoto implements _TakePhoto {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckPermissions value)? checkPermissions,
     TResult Function(_TakePhoto value)? takePhoto,
+    TResult Function(_NewJoke value)? newJoke,
     required TResult orElse(),
   }) {
     if (takePhoto != null) {
@@ -275,17 +291,109 @@ abstract class _TakePhoto implements CameraEvent {
 }
 
 /// @nodoc
+abstract class _$NewJokeCopyWith<$Res> {
+  factory _$NewJokeCopyWith(_NewJoke value, $Res Function(_NewJoke) then) =
+      __$NewJokeCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$NewJokeCopyWithImpl<$Res> extends _$CameraEventCopyWithImpl<$Res>
+    implements _$NewJokeCopyWith<$Res> {
+  __$NewJokeCopyWithImpl(_NewJoke _value, $Res Function(_NewJoke) _then)
+      : super(_value, (v) => _then(v as _NewJoke));
+
+  @override
+  _NewJoke get _value => super._value as _NewJoke;
+}
+
+/// @nodoc
+class _$_NewJoke implements _NewJoke {
+  const _$_NewJoke();
+
+  @override
+  String toString() {
+    return 'CameraEvent.newJoke()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) || (other is _NewJoke);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(bool ask) checkPermissions,
+    required TResult Function() takePhoto,
+    required TResult Function() newJoke,
+  }) {
+    return newJoke();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(bool ask)? checkPermissions,
+    TResult Function()? takePhoto,
+    TResult Function()? newJoke,
+    required TResult orElse(),
+  }) {
+    if (newJoke != null) {
+      return newJoke();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckPermissions value) checkPermissions,
+    required TResult Function(_TakePhoto value) takePhoto,
+    required TResult Function(_NewJoke value) newJoke,
+  }) {
+    return newJoke(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckPermissions value)? checkPermissions,
+    TResult Function(_TakePhoto value)? takePhoto,
+    TResult Function(_NewJoke value)? newJoke,
+    required TResult orElse(),
+  }) {
+    if (newJoke != null) {
+      return newJoke(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NewJoke implements CameraEvent {
+  const factory _NewJoke() = _$_NewJoke;
+}
+
+/// @nodoc
 class _$CameraStateTearOff {
   const _$CameraStateTearOff();
 
   _CameraState call(
       {bool permissions = false,
-      bool takingPhoto = false,
-      Duration jokeDuration = Duration.zero}) {
+      bool sayingJoke = false,
+      bool fetchingJoke = false,
+      Joke? joke = null,
+      String? error = null,
+      bool takePhoto = false}) {
     return _CameraState(
       permissions: permissions,
-      takingPhoto: takingPhoto,
-      jokeDuration: jokeDuration,
+      sayingJoke: sayingJoke,
+      fetchingJoke: fetchingJoke,
+      joke: joke,
+      error: error,
+      takePhoto: takePhoto,
     );
   }
 }
@@ -296,8 +404,11 @@ const $CameraState = _$CameraStateTearOff();
 /// @nodoc
 mixin _$CameraState {
   bool get permissions => throw _privateConstructorUsedError;
-  bool get takingPhoto => throw _privateConstructorUsedError;
-  Duration get jokeDuration => throw _privateConstructorUsedError;
+  bool get sayingJoke => throw _privateConstructorUsedError;
+  bool get fetchingJoke => throw _privateConstructorUsedError;
+  Joke? get joke => throw _privateConstructorUsedError;
+  String? get error => throw _privateConstructorUsedError;
+  bool get takePhoto => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CameraStateCopyWith<CameraState> get copyWith =>
@@ -309,7 +420,15 @@ abstract class $CameraStateCopyWith<$Res> {
   factory $CameraStateCopyWith(
           CameraState value, $Res Function(CameraState) then) =
       _$CameraStateCopyWithImpl<$Res>;
-  $Res call({bool permissions, bool takingPhoto, Duration jokeDuration});
+  $Res call(
+      {bool permissions,
+      bool sayingJoke,
+      bool fetchingJoke,
+      Joke? joke,
+      String? error,
+      bool takePhoto});
+
+  $JokeCopyWith<$Res>? get joke;
 }
 
 /// @nodoc
@@ -323,23 +442,49 @@ class _$CameraStateCopyWithImpl<$Res> implements $CameraStateCopyWith<$Res> {
   @override
   $Res call({
     Object? permissions = freezed,
-    Object? takingPhoto = freezed,
-    Object? jokeDuration = freezed,
+    Object? sayingJoke = freezed,
+    Object? fetchingJoke = freezed,
+    Object? joke = freezed,
+    Object? error = freezed,
+    Object? takePhoto = freezed,
   }) {
     return _then(_value.copyWith(
       permissions: permissions == freezed
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as bool,
-      takingPhoto: takingPhoto == freezed
-          ? _value.takingPhoto
-          : takingPhoto // ignore: cast_nullable_to_non_nullable
+      sayingJoke: sayingJoke == freezed
+          ? _value.sayingJoke
+          : sayingJoke // ignore: cast_nullable_to_non_nullable
               as bool,
-      jokeDuration: jokeDuration == freezed
-          ? _value.jokeDuration
-          : jokeDuration // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      fetchingJoke: fetchingJoke == freezed
+          ? _value.fetchingJoke
+          : fetchingJoke // ignore: cast_nullable_to_non_nullable
+              as bool,
+      joke: joke == freezed
+          ? _value.joke
+          : joke // ignore: cast_nullable_to_non_nullable
+              as Joke?,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+      takePhoto: takePhoto == freezed
+          ? _value.takePhoto
+          : takePhoto // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
+  }
+
+  @override
+  $JokeCopyWith<$Res>? get joke {
+    if (_value.joke == null) {
+      return null;
+    }
+
+    return $JokeCopyWith<$Res>(_value.joke!, (value) {
+      return _then(_value.copyWith(joke: value));
+    });
   }
 }
 
@@ -350,7 +495,16 @@ abstract class _$CameraStateCopyWith<$Res>
           _CameraState value, $Res Function(_CameraState) then) =
       __$CameraStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool permissions, bool takingPhoto, Duration jokeDuration});
+  $Res call(
+      {bool permissions,
+      bool sayingJoke,
+      bool fetchingJoke,
+      Joke? joke,
+      String? error,
+      bool takePhoto});
+
+  @override
+  $JokeCopyWith<$Res>? get joke;
 }
 
 /// @nodoc
@@ -366,22 +520,37 @@ class __$CameraStateCopyWithImpl<$Res> extends _$CameraStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? permissions = freezed,
-    Object? takingPhoto = freezed,
-    Object? jokeDuration = freezed,
+    Object? sayingJoke = freezed,
+    Object? fetchingJoke = freezed,
+    Object? joke = freezed,
+    Object? error = freezed,
+    Object? takePhoto = freezed,
   }) {
     return _then(_CameraState(
       permissions: permissions == freezed
           ? _value.permissions
           : permissions // ignore: cast_nullable_to_non_nullable
               as bool,
-      takingPhoto: takingPhoto == freezed
-          ? _value.takingPhoto
-          : takingPhoto // ignore: cast_nullable_to_non_nullable
+      sayingJoke: sayingJoke == freezed
+          ? _value.sayingJoke
+          : sayingJoke // ignore: cast_nullable_to_non_nullable
               as bool,
-      jokeDuration: jokeDuration == freezed
-          ? _value.jokeDuration
-          : jokeDuration // ignore: cast_nullable_to_non_nullable
-              as Duration,
+      fetchingJoke: fetchingJoke == freezed
+          ? _value.fetchingJoke
+          : fetchingJoke // ignore: cast_nullable_to_non_nullable
+              as bool,
+      joke: joke == freezed
+          ? _value.joke
+          : joke // ignore: cast_nullable_to_non_nullable
+              as Joke?,
+      error: error == freezed
+          ? _value.error
+          : error // ignore: cast_nullable_to_non_nullable
+              as String?,
+      takePhoto: takePhoto == freezed
+          ? _value.takePhoto
+          : takePhoto // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -390,22 +559,34 @@ class __$CameraStateCopyWithImpl<$Res> extends _$CameraStateCopyWithImpl<$Res>
 class _$_CameraState implements _CameraState {
   const _$_CameraState(
       {this.permissions = false,
-      this.takingPhoto = false,
-      this.jokeDuration = Duration.zero});
+      this.sayingJoke = false,
+      this.fetchingJoke = false,
+      this.joke = null,
+      this.error = null,
+      this.takePhoto = false});
 
   @JsonKey(defaultValue: false)
   @override
   final bool permissions;
   @JsonKey(defaultValue: false)
   @override
-  final bool takingPhoto;
-  @JsonKey(defaultValue: Duration.zero)
+  final bool sayingJoke;
+  @JsonKey(defaultValue: false)
   @override
-  final Duration jokeDuration;
+  final bool fetchingJoke;
+  @JsonKey(defaultValue: null)
+  @override
+  final Joke? joke;
+  @JsonKey(defaultValue: null)
+  @override
+  final String? error;
+  @JsonKey(defaultValue: false)
+  @override
+  final bool takePhoto;
 
   @override
   String toString() {
-    return 'CameraState(permissions: $permissions, takingPhoto: $takingPhoto, jokeDuration: $jokeDuration)';
+    return 'CameraState(permissions: $permissions, sayingJoke: $sayingJoke, fetchingJoke: $fetchingJoke, joke: $joke, error: $error, takePhoto: $takePhoto)';
   }
 
   @override
@@ -415,20 +596,30 @@ class _$_CameraState implements _CameraState {
             (identical(other.permissions, permissions) ||
                 const DeepCollectionEquality()
                     .equals(other.permissions, permissions)) &&
-            (identical(other.takingPhoto, takingPhoto) ||
+            (identical(other.sayingJoke, sayingJoke) ||
                 const DeepCollectionEquality()
-                    .equals(other.takingPhoto, takingPhoto)) &&
-            (identical(other.jokeDuration, jokeDuration) ||
+                    .equals(other.sayingJoke, sayingJoke)) &&
+            (identical(other.fetchingJoke, fetchingJoke) ||
                 const DeepCollectionEquality()
-                    .equals(other.jokeDuration, jokeDuration)));
+                    .equals(other.fetchingJoke, fetchingJoke)) &&
+            (identical(other.joke, joke) ||
+                const DeepCollectionEquality().equals(other.joke, joke)) &&
+            (identical(other.error, error) ||
+                const DeepCollectionEquality().equals(other.error, error)) &&
+            (identical(other.takePhoto, takePhoto) ||
+                const DeepCollectionEquality()
+                    .equals(other.takePhoto, takePhoto)));
   }
 
   @override
   int get hashCode =>
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(permissions) ^
-      const DeepCollectionEquality().hash(takingPhoto) ^
-      const DeepCollectionEquality().hash(jokeDuration);
+      const DeepCollectionEquality().hash(sayingJoke) ^
+      const DeepCollectionEquality().hash(fetchingJoke) ^
+      const DeepCollectionEquality().hash(joke) ^
+      const DeepCollectionEquality().hash(error) ^
+      const DeepCollectionEquality().hash(takePhoto);
 
   @JsonKey(ignore: true)
   @override
@@ -439,15 +630,24 @@ class _$_CameraState implements _CameraState {
 abstract class _CameraState implements CameraState {
   const factory _CameraState(
       {bool permissions,
-      bool takingPhoto,
-      Duration jokeDuration}) = _$_CameraState;
+      bool sayingJoke,
+      bool fetchingJoke,
+      Joke? joke,
+      String? error,
+      bool takePhoto}) = _$_CameraState;
 
   @override
   bool get permissions => throw _privateConstructorUsedError;
   @override
-  bool get takingPhoto => throw _privateConstructorUsedError;
+  bool get sayingJoke => throw _privateConstructorUsedError;
   @override
-  Duration get jokeDuration => throw _privateConstructorUsedError;
+  bool get fetchingJoke => throw _privateConstructorUsedError;
+  @override
+  Joke? get joke => throw _privateConstructorUsedError;
+  @override
+  String? get error => throw _privateConstructorUsedError;
+  @override
+  bool get takePhoto => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$CameraStateCopyWith<_CameraState> get copyWith =>
