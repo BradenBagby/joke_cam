@@ -63,6 +63,8 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
     }
     yield state.copyWith(sayingJoke: true);
     await _speechService.speak(joke.text);
+    _speechService.laugh();
+    await Future.delayed(const Duration(seconds: 1)); //delay for laugh
     yield state.copyWith(sayingJoke: false, takePhoto: true);
   }
 
