@@ -1,4 +1,4 @@
-# happy_camera
+# joke_cam
 
 Siri says a dad joke before taking your picture
 
