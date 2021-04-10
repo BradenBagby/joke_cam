@@ -9,6 +9,7 @@ import 'package:happy_camera/services/interfaces/i_speech_service.dart';
 
 class SpeechService extends ISpeechService {
   AudioCache audioPlayer = AudioCache();
+  AudioCache cameraPlayer = AudioCache();
   AudioPlayer? current;
 
   final List<Map<String, String>> voiceOptions = [
@@ -30,16 +31,20 @@ class SpeechService extends ISpeechService {
         .setIosAudioCategory(IosTextToSpeechAudioCategory.playAndRecord, [
       IosTextToSpeechAudioCategoryOptions.allowBluetooth,
       IosTextToSpeechAudioCategoryOptions.allowBluetoothA2DP,
-      IosTextToSpeechAudioCategoryOptions.mixWithOthers
+      IosTextToSpeechAudioCategoryOptions.mixWithOthers,
+      IosTextToSpeechAudioCategoryOptions.defaultToSpeaker,
     ]);
+
     await flutterTts.awaitSpeakCompletion(true);
     await flutterTts.setVolume(1.0);
-    await flutterTts.setPitch((Random().nextDouble() * 1.5) + 0.5);
+    // await flutterTts.setPitch((Random().nextDouble() * 1.5) + 0.5);
     try {
       final voice = voiceOptions[Random().nextInt(voiceOptions.length)];
       Logger.log(voice.toString());
       await flutterTts.setVoice(voice);
-    } catch (er) {}
+    } catch (er) {
+      Logger.log("error in setting voice: $er");
+    }
     await flutterTts.speak(text);
   }
 
@@ -50,6 +55,13 @@ class SpeechService extends ISpeechService {
     final path = "audio/$laughTrack.mp3";
     Logger.log("Laugh: $path");
     current = await audioPlayer.play(
+      path,
+    );
+  }
+
+  Future<void> cameraShutter() async {
+    const path = "audio/cameraShutter.mp3";
+    current = await cameraPlayer.play(
       path,
     );
   }

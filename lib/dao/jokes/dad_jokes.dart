@@ -13,7 +13,7 @@ class DadJokes {
         onRequest: (options, handler) {
           Logger.log(
               "Dad jokes request: url(${options.uri}), data(${options.data}");
-          options.headers['content-Type'] = 'application/json';
+          options.headers['Accept'] = 'application/json';
           options.headers['User-Agent'] = "happy_camera";
           return handler.next(options);
         },
@@ -22,16 +22,12 @@ class DadJokes {
 
   static Future<String?> getJoke() async {
     try {
-      final res = await dio.get("/slack");
+      final res = await dio.get("/");
       if (res.data == null || res.statusCode != 200) {
         return null;
       }
-      final data = Map<String, dynamic>.from(res.data as Map<dynamic, dynamic>);
-      final attachments =
-          List<dynamic>.from(data["attachments"] as List<dynamic>);
-      final newData =
-          Map<String, dynamic>.from(attachments[0] as Map<dynamic, dynamic>);
-      return newData["text"] as String;
+      final data = res.data as Map<String, dynamic>;
+      return data["joke"] as String;
     } catch (er) {
       Logger.log("failed to get dad joke: $er");
       return null;
